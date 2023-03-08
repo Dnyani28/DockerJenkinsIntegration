@@ -26,7 +26,7 @@ node {
        stage('SonarCoverageResults'){
 	
 	sh '''
-	  mvn clean verify sonar:sonar -Dsonar.projectKey=mysonarproject -Dsonar.host.url=http://44.207.3.149:5678 -Dsonar.login=sqp_37b237fc93cce9ff22f7c425b0f777790f99d514
+	  mvn clean verify sonar:sonar -Dsonar.projectKey=mysonarproject -Dsonar.host.url=http://34.234.66.90:1234 -Dsonar.login=sqp_a6cd717f05c64fd7f44ac5d157dcaf52b27c68d0 
 	'''
 	
 	
@@ -34,21 +34,20 @@ node {
 	stage('SendingToNexus'){
 	
 	sh '''
-	  
-          curl -v -u admin:admin123 --upload-file /var/lib/jenkins/workspace/myproject/target/*.war http://44.207.3.149:8081/nexus/content/repositories/myproject/
+          curl -v -u admin:admin123 --upload-file /var/lib/jenkins/workspace/myproject/target/*.war http://34.234.66.90:8086/nexus/content/repositories/snapshots
 	'''
 	
 	
 	}
        stage('DockerBuild'){
 	
-	app = docker.build("mannam786/mydynamicapp")
+	app = docker.build("dnyani28/mydynamicapp")
 	
 	
 	}
        stage('DockerPush'){
 	
-	docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+	docker.withRegistry('https://registry.hub.docker.com', 'docker') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
       
