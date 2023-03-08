@@ -26,7 +26,7 @@ node {
 	stage('SonarCoverageResults') {
 	
 	sh '''
-	  mvn clean verify sonar:sonar -Dsonar.projectKey=mysonarproject -Dsonar.host.url=http://54.152.250.9:1234 -Dsonar.login=sqp_7ba7bcea0080e361488289a44d9d037026ed2d3b
+	  mvn clean verify sonar:sonar -Dsonar.projectKey=project -Dsonar.host.url=http://107.23.59.198:4567 -Dsonar.login=sqp_13d2be19d067f4bc06cecad87af0e98cf2d32d05
 	'''
 	
 	
