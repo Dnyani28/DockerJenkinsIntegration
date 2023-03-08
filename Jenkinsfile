@@ -6,7 +6,7 @@ node {
 
         checkout scm
        }
-	stage('compile'){
+	stage('compile') {
 	
 	sh '''
 	  mvn compile
@@ -15,7 +15,7 @@ node {
 	
 	}
 	
-	stage('package'){
+	stage('package') {
 	
 	sh '''
 	  mvn package
@@ -23,4 +23,7 @@ node {
 	
 	
 	}
+	
+	
+ }
       
