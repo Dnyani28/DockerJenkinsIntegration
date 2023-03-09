@@ -26,7 +26,7 @@ node {
 	stage('SonarCoverageResults') {
 	
 	sh '''
-	  mvn clean verify sonar:sonar -Dsonar.projectKey=mainproject -Dsonar.host.url=http://100.26.145.207:1234 -Dsonar.login=sqp_a0f975dab0346b9e089717f13b04ea80e8688d97
+	  mvn clean verify sonar:sonar -Dsonar.projectKey=mainproject -Dsonar.host.url=http://100.26.145.207:1234 -Dsonar.login=sqp_756314a784d18c923da6e7f967689134ac4cd3c6
 	'''
 	
 	
@@ -35,7 +35,7 @@ node {
 	
 	sh '''
 	  
-          curl -v -u admin:admin123 --upload-file /var/lib/jenkins/workspace/myproject/target/*.war http://100.26.145.207:8082/nexus/content/repositories/mainproject
+          curl -v -u admin:admin123 --upload-file /var/lib/jenkins/workspace/project/target/*.war http://100.26.145.207:8082/nexus/content/repositories/project
 	'''
 	
 	
