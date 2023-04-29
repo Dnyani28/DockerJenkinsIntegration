@@ -22,31 +22,6 @@ node {
 	'''
 	
 	
-	}
-	stage('SonarCoverageResults') {
-	
-	sh '''
-	  mvn clean verify sonar:sonar -Dsonar.projectKey=mainproject -Dsonar.host.url=http://100.26.145.207:1234 -Dsonar.login=sqp_756314a784d18c923da6e7f967689134ac4cd3c6
-	'''
-	
-	
-	}
-	stage('SendingToNexus') {
-	
-	sh '''
-	  
-          curl -v -u admin:admin123 --upload-file /var/lib/jenkins/workspace/project/target/*.war http://100.26.145.207:8082/nexus/content/repositories/project
-	'''
-	
-	
-	}
-	stage('DockerBuild') {
-	
-	app = docker.build("dnyani28/mydynamicapp")
-	
-	
-	}
-	
 	
   }
       
