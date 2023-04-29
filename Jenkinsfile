@@ -61,5 +61,13 @@ node {
 	'''
 
 	}
+	stage('deplyoment') {
+	
+	sh '''
+	  kubectl create -f deply.yaml
+	'''
+
+	}
+	
   }
       
