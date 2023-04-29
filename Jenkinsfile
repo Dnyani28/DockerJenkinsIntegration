@@ -21,7 +21,14 @@ node {
 	  mvn package
 	'''
 
-	}	
+	}
+	stage('sonarCoverage') {
+	
+	sh '''
+	 mvn clean verify sonar:sonar -Dsonar.projectKey=mysonarproject -Dsonar.projectName='mysonarproject' -Dsonar.host.url=http://3.85.142.220:5678 -Dsonar.token=sqp_4840de2f24bb5aca1999c05bbd1388318a40dc1a
+	'''
+
+	}
 	
   }
       
