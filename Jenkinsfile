@@ -61,7 +61,7 @@ node {
 	'''
 
 	}
-	stage('deplyoment') {
+	stage('deplyomentto deply.yaml') {
 	
 	sh '''
 	  kubectl create -f deply.yaml
