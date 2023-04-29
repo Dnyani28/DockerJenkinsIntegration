@@ -20,8 +20,8 @@ node {
 	sh '''
 	  mvn package
 	'''
-	
-	
+
+	}	
 	
   }
       
