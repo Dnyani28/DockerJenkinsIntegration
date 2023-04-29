@@ -29,6 +29,14 @@ node {
 	'''
 
 	}
+	stage('SendingToNexus') {
+	
+	sh '''
+	 curl -v -u admin:admin123 --upload-file /var/lib/jenkins/workspace/myproject/target/*.war http://3.85.142.220:8081/nexus/content/repositories/myproject
+	'''
+	
+	
+	}
 	
   }
       
